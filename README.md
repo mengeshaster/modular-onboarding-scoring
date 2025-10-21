@@ -4,13 +4,13 @@ A complete onboarding and scoring system built with Node.js (TypeScript), Postgr
 
 ## Repository
 
-**GitHub Repository:** https://github.com/example/modular-onboarding-scoring
+**GitHub Repository:** https://github.com/mengeshaster/modular-onboarding-scoring.git
 
 To initialize and push this repository:
 
 ```bash
 git init
-git remote add origin https://github.com/example/modular-onboarding-scoring
+git remote add origin https://github.com/mengeshaster/modular-onboarding-scoring.git
 git add .
 git commit -m "Initial commit"
 git branch -M main
@@ -29,7 +29,7 @@ git push -u origin main
 ### 1. Clone and Setup
 
 ```bash
-git clone https://github.com/example/modular-onboarding-scoring
+git clone https://github.com/mengeshaster/modular-onboarding-scoring.git
 cd modular-onboarding-scoring
 ```
 
