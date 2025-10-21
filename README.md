@@ -83,10 +83,10 @@ docker compose logs -f
 
 ```bash
 # Apply database migrations
-docker compose exec api npm run migrate:up
+docker compose exec api npx node-pg-migrate up --migrations-dir src/db/migrations --ignore-pattern ".*\\.ts$"
 
 # Verify tables were created
-docker compose exec postgres psql -U onboarding_user -d onboarding_prod -c "\dt"
+docker compose exec postgres psql -U onboarding -d onboarding -c "\dt"
 ```
 
 ### 5. Verify Deployment
@@ -118,44 +118,6 @@ curl -X POST http://localhost:3000/v1/onboarding \
   }'
 ```
 
-### 6. Production Security Checklist
-
-- [ ] Change all default passwords and API keys
-- [ ] Set up SSL/TLS termination (nginx proxy or load balancer)
-- [ ] Configure firewall rules (only expose necessary ports)
-- [ ] Set up log rotation and monitoring
-- [ ] Configure database backups
-- [ ] Set up health monitoring and alerting
-- [ ] Review data retention policies
-
-**Service URLs (Production):**
-
-- API: <http://your-domain:3000>
-- API Documentation: <http://your-domain:3000/docs>
-- Scorer Documentation: <http://your-domain:8000/docs>
-
-### 7. SSL Setup (Recommended)
-
-For production, set up SSL termination with nginx:
-
-```bash
-# Install nginx and certbot
-sudo apt update
-sudo apt install nginx certbot python3-certbot-nginx
-
-# Copy nginx configuration template
-sudo cp nginx.conf.example /etc/nginx/sites-available/onboarding-api
-sudo nano /etc/nginx/sites-available/onboarding-api  # Edit domain name
-
-# Enable site
-sudo ln -s /etc/nginx/sites-available/onboarding-api /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
-
-# Get SSL certificate
-sudo certbot --nginx -d your-domain.com
-```
-
 ## 🔧 Deployment Troubleshooting
 
 ### Common Deployment Issues
@@ -177,13 +139,13 @@ docker compose restart api
 
 ```bash
 # Check database connectivity
-docker compose exec postgres pg_isready -U onboarding_user -d onboarding_prod
+docker compose exec postgres pg_isready -U onboarding -d onboarding
 
 # Manually run migrations
 docker compose exec api npm run migrate:up
 
 # Check migration status
-docker compose exec postgres psql -U onboarding_user -d onboarding_prod -c "SELECT * FROM pgmigrations;"
+docker compose exec postgres psql -U onboarding -d onboarding -c "SELECT * FROM pgmigrations;"
 ```
 
 **Port conflicts:**
