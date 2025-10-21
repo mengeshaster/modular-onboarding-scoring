@@ -1,0 +1,28 @@
+{
+  "databaseUrl": {
+    "ENV": "DATABASE_URL"
+  },
+  "host": {
+    "ENV": "PGHOST"
+  },
+  "port": {
+    "ENV": "PGPORT"
+  },
+  "database": {
+    "ENV": "PGDATABASE"
+  },
+  "user": {
+    "ENV": "PGUSER"
+  },
+  "password": {
+    "ENV": "PGPASSWORD"
+  },
+  "schema": "public",
+  "migrationsTable": "migrations",
+  "dir": "src/db/migrations",
+  "direction": "up",
+  "count": 1,
+  "ignorePattern": ".*\\.ts$",
+  "createSchema": true,
+  "noLock": false
+}

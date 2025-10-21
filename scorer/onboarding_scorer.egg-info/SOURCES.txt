@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+app/__init__.py
+app/deps.py
+app/main.py
+app/tests/__init__.py
+app/tests/test_score.py
+onboarding_scorer.egg-info/PKG-INFO
+onboarding_scorer.egg-info/SOURCES.txt
+onboarding_scorer.egg-info/dependency_links.txt
+onboarding_scorer.egg-info/requires.txt
+onboarding_scorer.egg-info/top_level.txt

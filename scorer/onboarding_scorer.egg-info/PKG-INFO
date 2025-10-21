@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: onboarding-scorer
+Version: 1.0.0
+Summary: Onboarding scoring microservice
+Author-email: Onboarding Team <team@example.com>
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: pydantic>=2.4.0
+Requires-Dist: python-multipart>=0.0.6
+Provides-Extra: test
+Requires-Dist: pytest>=7.4.0; extra == "test"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "test"
+Requires-Dist: httpx>=0.25.0; extra == "test"
+Requires-Dist: pytest-cov>=4.1.0; extra == "test"
+Provides-Extra: dev
+Requires-Dist: black>=23.9.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.1.0; extra == "dev"
+Requires-Dist: mypy>=1.6.0; extra == "dev"
+
+# Onboarding Scorer Service
+
+A FastAPI-based microservice for calculating onboarding scores.
+
+## Development
+
+Install dependencies:
+```bash
+pip install -e .[test,dev]
+```
+
+Run the service:
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Run tests:
+```bash
+pytest
+```
+
+## API
+
+- `POST /score` - Calculate onboarding score
+- `GET /health` - Health check
+- `GET /docs` - API documentation
