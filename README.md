@@ -4,7 +4,7 @@ A complete onboarding and scoring system built with Node.js (TypeScript), Postgr
 
 ## Repository
 
-**GitHub Repository:** https://github.com/example/modular-onboarding-scoring
+**GitHub Repository:** https://github.com/mengeshaster/modular-onboarding-scoring.git
 
 To initialize and push this repository:
 
