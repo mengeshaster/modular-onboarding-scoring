@@ -14,7 +14,7 @@ async function start() {
 
     // Create and start server
     const app = createServer();
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 3001;
 
     app.listen(port, () => {
       logger.info(`Server running on port ${port}`);

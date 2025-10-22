@@ -48,7 +48,7 @@ nano .env
 ```env
 # API Configuration
 API_KEY=your-secure-api-key-here
-PORT=3000
+PORT=3001
 
 # Database (Production)
 PGHOST=postgres
@@ -93,13 +93,13 @@ docker compose exec postgres psql -U onboarding -d onboarding -c "\dt"
 
 ```bash
 # Test API health
-curl http://localhost:3000/health
+curl http://localhost:3001/health
 
 # Test scorer health
 curl http://localhost:8000/health
 
 # Test full API endpoint
-curl -X POST http://localhost:3000/v1/onboarding \
+curl -X POST http://localhost:3001/v1/onboarding \
   -H "Content-Type: application/json" \
   -H "x-api-key: your-secure-api-key-here" \
   -d '{
@@ -152,7 +152,7 @@ docker compose exec postgres psql -U onboarding -d onboarding -c "SELECT * FROM 
 
 ```bash
 # Check what's using the ports
-netstat -tulpn | grep :3000
+netstat -tulpn | grep :3001
 netstat -tulpn | grep :5432
 netstat -tulpn | grep :6379
 netstat -tulpn | grep :8000
@@ -187,7 +187,7 @@ sudo systemctl restart docker
 #!/bin/bash
 # health-check.sh
 echo "Checking API health..."
-curl -f http://localhost:3000/health || echo "API unhealthy"
+curl -f http://localhost:3001/health || echo "API unhealthy"
 
 echo "Checking Scorer health..."
 curl -f http://localhost:8000/health || echo "Scorer unhealthy"
@@ -272,8 +272,8 @@ docker compose up --build
 ```
 
 **Service URLs:**
-- API: http://localhost:3000
-- API Documentation: http://localhost:3000/docs
+- API: http://localhost:3001
+- API Documentation: http://localhost:3001/docs
 - Python Scorer Documentation: http://localhost:8000/docs
 
 **Health Checks:**
@@ -319,7 +319,7 @@ npm run dev
 ### Create Onboarding Session
 
 ```bash
-curl -X POST http://localhost:3000/v1/onboarding \
+curl -X POST http://localhost:3001/v1/onboarding \
   -H "Content-Type: application/json" \
   -H "x-api-key: dev-api-key" \
   -d '{
@@ -341,14 +341,14 @@ curl -X POST http://localhost:3000/v1/onboarding \
 ### Get Onboarding Session
 
 ```bash
-curl -X GET http://localhost:3000/v1/onboarding/{session-id} \
+curl -X GET http://localhost:3001/v1/onboarding/{session-id} \
   -H "x-api-key: dev-api-key"
 ```
 
 ### Get Recent Sessions for User
 
 ```bash
-curl -X GET http://localhost:3000/v1/onboarding/recent/123e4567-e89b-12d3-a456-426614174000 \
+curl -X GET http://localhost:3001/v1/onboarding/recent/123e4567-e89b-12d3-a456-426614174000 \
   -H "x-api-key: dev-api-key"
 ```
 
@@ -356,7 +356,7 @@ curl -X GET http://localhost:3000/v1/onboarding/recent/123e4567-e89b-12d3-a456-4
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `PORT` | API server port | 3000 |
+| `PORT` | API server port | 3001 |
 | `API_KEY` | API authentication key | dev-api-key |
 | `INTERNAL_SCORER_URL` | Python scorer service URL | http://scorer:8000 |
 | `INTERNAL_SCORER_TOKEN` | Internal service authentication | dev-internal-token |
